@@ -1,0 +1,28 @@
+a:link {
+    color : green;
+    text-decoration : none;
+    padding : 15px 25px;
+    text-align : center;
+    display : inline-block;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    border: 2px solid red;
+}
+
+a:visited {
+    color : pink;
+    background-color : transparent;
+    text-decoration : none;
+} 
+
+a:hover {
+    color : red;
+    background-color : transparent;
+    text-decoration : underline;
+}
+
+a:active {
+    color : yellow;
+    background-color : transparent;
+    text-decoration : underline;
+}
