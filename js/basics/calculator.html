@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+            border: 1px solid black;
+            font-size: 30px;
+        }
+        
+        .bodyBackground {
+            background-color: rgb(114, 120, 158);
+        }
+        
+        .calculatorBody {
+            background-color: white;
+            width: 630px;
+        }
+        
+        .sample {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function getAns() {
+            try {
+                document.getElementsByName('input')[0].value = eval(document.getElementsByName('input')[0].value);
+            } catch (e) {
+                document.getElementsByName('input')[0].value = "Error";
+            }
+        }
+
+        function getNum(num) {
+            document.getElementsByName('input')[0].value = document.getElementsByName('input')[0].value + num;
+        }
+    </script>
+</head>
+
+<body class="bodyBackground">
+    <input type="text" name="input" style="width:630px;height:100px;font-size:30px;">
+    <p></p>
+    <div class="calculatorBody ">
+
+        <div>
+            <button type="button " id="number " value="7 " onclick="getNum(7) " class=" container ">7</button>
+            <button type="button " id="number " value="8 " onclick="getNum(8) " class="container ">8</button>
+            <button type="button " id="number " value="9 " onclick="getNum(9) " class="container ">9</button>
+            <button type="button " id="number " value="/ " onclick="getNum( '/') " class="container ">&#10135</button>
+        </div>
+        <div>
+            <button type="button " id="number " value="4 " onclick="getNum(4) " class="container ">4</button>
+            <button type="button " id="number " value="5 " onclick="getNum(5) " class="container ">5</button>
+            <button type="button " id="number " value="6 " onclick="getNum(6) " class="container ">6</button>
+            <button type="button " id="number " value="x " onclick="getNum( '*') " class="container ">X</button>
+        </div>
+        <div>
+            <button type="button " id="number " value="1 " onclick="getNum(1) " class="container ">1</button>
+            <button type="button " id="number " value="2 " onclick="getNum(2) " class="container ">2</button>
+            <button type="button " id="number " value="3 " onclick="getNum(3) " class="container ">3</button>
+            <button type="button " id="number " value="- " onclick="getNum( '-') " class="container ">&#x002D</button>
+        </div>
+        <div>
+            <button type="button " id="number " value="0 " onclick="getNum(0) " class="container ">0</button>
+            <button type="button " id="number " value=". " onclick="getNum( '.') " class="container ">.</button>
+            <button type="button " id="number " value="=" onclick=" getAns() " class=" container ">=</button>
+            <button type=" button " id="number " value="+ " onclick="getNum( '+') " class="container ">+</button>
+        </div>
+    </div>
+</body>
+
+</html>

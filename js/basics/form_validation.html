@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return validate()" action=" calculator.html ">
+        <input type="text " id="uname" placeholder="username " required>
+        <br><br>
+        <input type="password " id="pwd" placeholder="password " required>
+        <br><br>
+        <input type="submit"></input>
+    </form>
+</body>
+
+</html>
+
+<script>
+    function validate() {
+        var uname = document.getElementById("uname").value.trim();
+        var pwd = document.getElementById("pwd").value.trim();
+
+        if (uname == "" || pwd == "") {
+            alert("Please enter username and password ");
+            document.getElementById("uname").style.border = "3px solid red ";
+            return false;
+        } else if (uname.length < 8) {
+            alert("username must be at least 8 characters ");
+            document.getElementById("pwd").style.border = "1px solid black";
+            document.getElementById("uname").style.border = "3px solid red";
+            return false;
+        } else if (pwd.length < 8) {
+            alert("Password must be at least 8 characters ");
+            document.getElementById("pwd").style.border = "3px solid red ";
+            document.getElementById("uname").style.border = "1px solid black";
+            return false;
+        } else if (pwd.search(/[0-9]/) == -1) {
+            alert("Password must contain at least one number ");
+            document.getElementById("pwd").style.border = "3px solid red ";
+            document.getElementById("uname").style.border = "1px solid black";
+            return false;
+        } else if (pwd.search(/[a-z]/) == -1) {
+            alert("Password must contain at least one lowercase letter ");
+            document.getElementById("pwd").style.border = "3px solid red ";
+            document.getElementById("uname").style.border = "1px solid black";
+            return false;
+        } else if (pwd.search(/[A-Z]/) == -1) {
+            alert("Password must contain at least one uppercase letter ");
+            document.getElementById("pwd").style.border = "3px solid red ";
+            document.getElementById("uname").style.border = "1px solid black";
+            return false;
+        } else if (pwd.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) == -1) {
+            alert("Password must contain at least one special character");
+            document.getElementById("pwd").style.border = "3px solid red ";
+            document.getElementById("uname").style.border = "1px solid black";
+            return false;
+        } else {
+            alert("Success!");
+            document.getElementById("pwd").style.border = "1px solid black";
+            document.getElementById("uname").style.border = "1px solid black";
+            return true;
+        }
+    }
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!------------------------------------------------------->
+</body>
+
+</html>
+
+<script>
+    var Cars = {
+        model: "Model s",
+        year: "2016",
+        color: "black",
+        engine: "V8",
+        price: "20000",
+
+        printDetails: function() {
+            document.write("<br>" + this.model + " " + this.year + " " + this.color + " " + this.engine + " " + this.price);
+        }
+
+    };
+
+    // other type of defining classes - using constructors
+
+    var Cars1 = function(model, year, color, engine, price) {
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.engine = engine;
+        this.price = price;
+
+        this.printDetails = function() {
+            document.write("<br>" + this.model + " " + this.year + " " + this.color + " " + this.engine + " " + this.price);
+        }
+    }
+    Cars.printDetails();
+
+    var car1 = new Cars1("Model s", "2016", "black", "V8", "20000");
+    car1.printDetails();
+</script>

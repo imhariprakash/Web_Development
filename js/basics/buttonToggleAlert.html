@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="rd1" name="rd1" type="radio" value="Server 1">Server 1 </input><br><br>
+    <input id="rd2" name="rd1" type="radio" value="Server 2">Server 2 </input><br><br>
+    <button id="bt1" name="rd1" type="button" onclick="clicked()">Click Me</button><br><br>
+    <button id="bt2" name="rd2" type="button" onclick="clicked1()">Toggle</button>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        if (rd1.checked == true) {
+            alert("Server 1 is selected");
+        } else if (rd2.checked == true) {
+            alert("Server 2 is selected");
+        } else {
+            alert("No server is selected");
+        }
+    }
+
+    function clicked1() {
+        if (rd1.checked == true) {
+            rd1.checked = false;
+            rd2.checked = true;
+        } else if (rd2.checked == true) {
+            rd2.checked = false;
+            rd1.checked = true;
+        } else {
+            rd1.checked = true;
+        }
+    }
+</script>

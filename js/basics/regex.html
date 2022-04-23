@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="calculator.html" onsubmit="return clicked()">
+        <input type="text" id="myText" placeholder="mobile number">
+        <br><br>
+        <label id="label" style=" color:red;visibility:hidden;">Invalid input</label>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        var mobile = document.getElementById("myText").value;
+        //var regx = /[a-zA-Z]00/;
+        //var regx = /[^a-zA-Z]00/;
+        //var regx = /^[a-zA-Z]00/;
+        var regx = /^[6-9]\d{9}$/;
+        if (regx.test(mobile)) {
+            alert("valid mobile number");
+            document.getElementById("label").style.visibility = "hidden";
+            return true;
+        } else {
+            alert("Invalid mobile number");
+            document.getElementById("label").style.visibility = "visible";
+            return false;
+        }
+    }
+</script>

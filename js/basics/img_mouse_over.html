@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img2.jpg" id="img" width=" 700 " onmouseover=" getNewImage() " onmouseout="getOldImage() ">
+</body>
+
+</html>
+
+<script>
+    function getNewImage() {
+        document.getElementsByTagName("img")[0].src = "img1.png ";
+    }
+
+    function getOldImage() {
+        document.getElementsByTagName("img")[0].src = "img2.jpg ";
+    }
+</script>

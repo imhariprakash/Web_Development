@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <p>Paragraph 4</p>
+    <p>Paragraph 5</p>
+    <button type="button" onclick="clicked()">Click</button>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        var obj = document.getElementsByTagName("p");
+        alert(obj[0].innerHTML);
+        obj[0].innerHTML = "Paragraph 1 changed";
+        obj[0].style.color = "red";
+        obj[0].style.fontSize = "30px";
+        obj[0].style.fontWeight = "bold";
+        obj[0].style.textDecoration = "underline";
+
+        for (var i = 1; i < obj.length; i++) {
+            obj[i].style.color = "blue";
+            obj[i].style.fontSize = "20px";
+            obj[i].style.fontWeight = "normal";
+            obj[i].style.textDecoration = "none";
+        }
+    }
+</script>

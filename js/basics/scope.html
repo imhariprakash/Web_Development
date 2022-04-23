@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!------------------------------>
+</body>
+
+</html>
+
+<script>
+    var b = 111;
+    var c = 1;
+    d = 4;
+
+    function sample() {
+        var a = 12;
+        var c = 113; // local scope
+        e = 11; // global scope - since no var used
+        document.write(a + "<br>");
+        document.write(b + "<br>");
+        document.write(c + "<br>");
+        document.write(d + "<br>");
+    }
+
+    sample();
+    document.write(e);
+</script>

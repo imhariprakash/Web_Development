@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="calculator.html" onsubmit="return clicked()">
+        <input type="text" id="myText" placeholder="type something">
+        <br><br>
+        <label id="label" style=" color:red;visibility:hidden;">Invalid input</label>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        var uname = document.getElementById("myText").value;
+        var regx = /E00/;
+        // var regx = new RegExp("E00","i"); //i means ignore case sensitivity - other way is to use /E00/i
+        if (regx.test(uname)) {
+            alert("valid");
+            document.getElementById("label").style.visibility = "hidden";
+            return true;
+        } else {
+            alert("Invalid ");
+            document.getElementById("label").style.visibility = "visible";
+            return false;
+        }
+    }
+</script>

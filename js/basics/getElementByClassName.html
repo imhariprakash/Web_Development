@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sample {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="sample">Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p class="sample">Paragraph 3</p>
+    <p>Paragraph 4</p>
+    <p class="sample">Paragraph 5</p>
+    <p>Paragraph 6</p>
+    <button type="button" onclick="clicked()">Submit</button>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        var obj = document.getElementsByClassName('sample');
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].style.color = "red";
+        }
+    }
+</script>
