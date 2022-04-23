@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="https://www.google.com" onsubmit="return clicked()">
+        <input type="text" id="myText" placeholder="email">
+        <br><br>
+        <label id="label" style=" color:red;visibility:hidden;">Invalid input</label>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
+<script>
+    function clicked() {
+        var email = document.getElementById("myText").value;
+        //var regx = /[a-zA-Z]00/;
+        //var regx = /[^a-zA-Z]00/;
+        //var regx = /^[a-zA-Z]00/;
+        var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8}?)$/;
+        if (regx.test(email)) {
+            alert("valid email");
+            document.getElementById("label").style.visibility = "hidden";
+            return true;
+        } else {
+            alert("Invalid email");
+            document.getElementById("label").style.visibility = "visible";
+            return false;
+        }
+    }
+</script>

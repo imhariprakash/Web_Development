@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="fadeIn()">Fade in</button>
+    <br><br>
+    <img src="freeimg.jpg" id="image" alt=" image " style="width:100px;height:100px;opacity:1; ">
+    <br><br>
+    <button type="button " onclick="fadeOut() ">Fade out</button>
+</body>
+
+</html>
+
+<script>
+    function fadeIn() {
+        var img = document.getElementById("image");
+        var opacity = 1;
+        while (opacity >= 0) {
+            img.style.opacity = opacity;
+            opacity -= 0.1;
+            setTimeout(1000);
+        }
+        opacity = 0;
+        img.src = "freeimg1.jpg";
+        while (opacity <= 1) {
+            img.style.opacity = opacity;
+            opacity += 0.1;
+            setTimeout(1000);
+        }
+    }
+
+    function fadeOut() {
+        var img = document.getElementById("image");
+        var opacity = 1;
+        while (opacity >= 0) {
+            img.style.opacity = opacity;
+            opacity -= 0.1;
+            setTimeout(1000);
+        }
+        opacity = 0;
+        img.src = "freeimg.jpg";
+        while (opacity <= 1) {
+            img.style.opacity = opacity;
+            opacity += 0.1;
+            setTimeout(1000);
+        }
+    }
+</script>

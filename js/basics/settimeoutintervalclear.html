@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="start()">Start</button>
+    <br>
+    <h1 id="h1">0 second</h1>
+    <button type="button" onclick="stop()">Stop</button>
+    <button type="button" onclick="loop()">Loop</button>
+    <button type="button" onclick="endLoop()">End loop</button>
+    <button type="button" onclick="reset()">Reset</button>
+</body>
+
+</html>
+
+<script>
+    var second = 0;
+    var id;
+
+    function start() {
+        id = setTimeout(printSecond, 1000);
+    }
+
+    function stop() {
+        clearTimeout(id);
+    }
+
+    function printSecond() {
+        second++;
+        document.getElementById('h1').innerHTML = second + " second";
+    }
+
+    function loop() {
+        id = setInterval(printSecond, 1000);
+    }
+
+    function endLoop() {
+        clearInterval(id);
+    }
+
+    function reset() {
+        second = 0;
+        document.getElementById('h1').innerHTML = second + " second";
+        clearInterval(id);
+    }
+</script>
