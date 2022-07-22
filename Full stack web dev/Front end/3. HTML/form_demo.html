@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Forms Demo</h2>
+    <form action="form_demo.html">
+      <label for="username">Enter your username : </label>
+      <input type="text" name="username" id="username" placeholder="username" />
+      <br /><br />
+      <label for="pass">Enter your password : </label>
+      <input type="password" name="pass" id="pass" placeholder="password" />
+      <br /><br />
+      <label for="color">Choose a color : </label>
+      <input type="color" name="color" id="color" value="#ff0000" />
+      <br /><br />
+      <label for="number">Enter a number : </label>
+      <input
+        type="number"
+        name="number"
+        id="number"
+        placeholder="Enter a number"
+      />
+      <br /><br />
+      <button>Click Me!</button>
+      <button type="button">Regular button</button>
+      <input type="submit" />
+    </form>
+
+    <hr />
+
+    <button>Outside form</button>
+    <br /><br />
+    <h2>Hijacking Searches</h2>
+    <h3>Search Google</h3>
+    <form action="https://www.google.com/search">
+      <label for="google"></label>
+      <input type="text" name="q" id="google" placeholder="Search Google" />
+      <button>Search Google</button>
+    </form>
+    <br />
+    <h3>Search Bing</h3>
+    <form action="https://www.bing.com/search">
+      <label for="bing"></label>
+      <input type="text" name="q" id="bing" placeholder="Search Bing" />
+      <button>Search Bing</button>
+    </form>
+    <br />
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search">
+      <label for="reddit"></label>
+      <input type="text" name="q" id="reddit" placeholder="Search Reddit" />
+      <button>Search Reddit</button>
+    </form>
+  </body>
+</html>
