@@ -1,0 +1,26 @@
+.box{
+    width: 200px;
+    height: 200px;
+}
+
+body{
+    margin-top:0px;
+}
+
+.box1{
+    background-color: red;
+    border: solid 10px;
+    padding: 20px;}
+
+.box2{
+    background-color: blue;
+    border: solid 20px;
+    margin-left: 260px;
+}
+
+.box3{
+    background-color: yellow;
+    border: solid 10px;
+    margin-left: 500px; 
+}
+
