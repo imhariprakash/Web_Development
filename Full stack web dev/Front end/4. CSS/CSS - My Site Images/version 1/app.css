@@ -1,0 +1,89 @@
+body{
+    text-align: center;
+    margin:0px;
+    background-color: #f2f2f2;
+    color:black;
+    font-size:18px;
+}
+
+header{
+        font-family: 'Dancing Script', cursive;
+        color:#66BFBF;
+        background-color: #F0EBE3;
+        font-size:2em;
+}
+
+h2,h3{
+    color:green;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+h3{
+    font-size: 1.5em;
+}
+
+.top-cloud{
+    position: relative;
+    left:260px;
+    top:20px;
+}
+
+.middle-cloud{
+    position: relative;
+    bottom:300px;
+    left:200px;
+}
+
+span{
+    text-decoration: underline;
+}
+
+.moveright{
+    position: relative;
+    left:100px;
+}
+
+.movetop{
+    position: relative;
+    bottom:10px;
+}
+
+.profile {
+    height: 100px;
+    width: 100px;
+}
+
+.blackcolor{
+    color: black;
+}
+
+.container{
+    width:50%;
+    margin:0 auto;
+    text-align:left;
+    line-height:2;
+}
+
+.image {
+    border-radius: 50%;
+    width:25%;
+}
+
+.floatleft{
+    float: left;
+    margin-right: 30px;
+}
+
+.floatright{
+    float: right;
+    margin-left: 30px;
+}
+
+.centeralign{
+    text-align:center; 
+}
+
+
