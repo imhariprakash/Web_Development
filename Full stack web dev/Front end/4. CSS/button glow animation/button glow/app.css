@@ -1,0 +1,24 @@
+body{
+    background-color: #182030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button{
+    background-color: #182030;
+    color: #fff;
+    border: 2px solid orangered;
+    border-radius: 5px;
+    padding: 0.8em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: gold;
+    color: #182030;
+    box-shadow: 0 10px 5px orangered;
+    cursor: pointer;
+}
