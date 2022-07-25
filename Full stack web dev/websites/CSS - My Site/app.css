@@ -1,0 +1,142 @@
+body{
+    text-align: center;
+    margin:0px;
+    background-color: #f2f2f2;
+    color:black;
+    font-size:18px;
+}
+
+header{
+        font-family: 'Dancing Script', cursive;
+        color:#66BFBF;
+        background-color: #EAF6F6;
+        font-size:2em;
+}
+
+p{
+    color:#40514E;
+}
+
+h2,h3{
+    color:#11999E;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+h3{
+    font-size: 1.5em;
+}
+
+.top-cloud{
+    position: relative;
+    left:260px;
+    top:20px;
+}
+
+.middle-cloud{
+    position: relative;
+    bottom:300px;
+    left:200px;
+}
+
+span{
+    text-decoration: underline;
+}
+
+.moveright{
+    position: relative;
+    left:100px;
+}
+
+.movetop{
+    position: relative;
+    bottom:10px;
+}
+
+.profile {
+    height: 100px;
+    width: 100px;
+    margin:50px 0;
+}
+
+.blackcolor{
+    color: black;
+}
+
+.container{
+    width:50%;
+    margin:0 auto;
+    text-align:left;
+    line-height:2;
+}
+
+.image {
+    border-radius: 50%;
+    width:25%;
+}
+
+.floatleft{
+    float: left;
+    margin-right: 30px;
+}
+
+.floatright{
+    float: right;
+    margin-left: 30px;
+}
+
+.centeralign{
+    text-align:center; 
+}
+
+hr{
+    border: dotted black 5px;
+    border-bottom: none;
+    width:5%;
+    margin:50px auto;    
+}
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 20px;
+    background: #66bfbf;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+.setbg{
+    background-color: #66BFBF;
+    padding:30px;
+}
+
+a{
+    padding:10px;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#EAF6F6;
+}
+
+.copyright{
+    color:#EAF6F6;
+    font-size:0.8em;
+}
+
+
