@@ -1,0 +1,102 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    /* over all width */
+}
+
+body {
+    background-color: #60a9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.panel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    letter-spacing: 2px;
+    font-size: 15px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .panel {
+        flex-direction: column;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .pricing-plan {
+        border-bottom: 1px solid #e1f1ff;
+        padding-bottom: 40px;
+    }
+
+    .pricing-plan:last-child {
+        border-bottom: none;
+    }
+}
+
+.pricing-plan {
+    border-right: 1px solid #e1f1ff;
+    padding-right: 40px;
+}
+
+.pricing-plan:last-child {
+    border-right: none;
+    padding-right: none;
+}
+
+.pricing-img {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.pricing-header {
+    color: #888;
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.pricing-list {
+    font-weight: 600;
+    color: #016ff9;
+}
+
+.pricing-list li {
+    font-weight: 600;
+    color: #016ff9;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e1f1ff;
+}
+
+.price {
+    font-weight: 800;
+    color: #016ff9;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: none;
+    color: #016ff9;
+    border: 1px solid #016ff9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 200ms;
+}
+
+.button:hover {
+    background-color: #016ff9;
+    color: white;
+}
