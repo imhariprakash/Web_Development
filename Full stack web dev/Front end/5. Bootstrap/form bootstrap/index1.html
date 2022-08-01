@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container mb-5">
+        <h1>Form Controls</h1>
+        <form action="index1.html">
+            <div class="form-group m-2">
+                <label for="email">Email : </label>
+                <input type="email" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group m-2"> 
+                <label for="password">Password : </label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="select">Select : </label>
+                <select name="select" id="select" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group m-2">
+                <label for="multi-select">Select : </label>
+                <select multiple name="multi-select" id="multi-select" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <small>Use ctrl (windows) or cmd (mac) to select multiple items</small>
+            </div>
+            <div class="form-group m-2">
+                <label for="textarea">Textarea : </label>
+                <textarea name="textarea" id="textarea" class="form-control"></textarea>
+            </div>
+            <div class="form-group m-2">
+                <label for="radio">Radio : </label>
+                <div class="form-check">
+                    <input type="radio" name="radio" id="radio1" class="form-check-input">
+                    <label for="radio1" class="form-check-label">Radio 1</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="radio" id="radio2" class="form-check-input">
+                    <label for="radio2" class="form-check-label">Radio 2</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="radio" id="radio3" class="form-check-input">
+                    <label for="radio3" class="form-check-label">Radio 3</label>
+                </div>
+            </div>
+            <div class="form-group m-2">
+                <label for="checkbox">Checkbox : </label>
+                <div class="form-check">
+                    <input type="checkbox" name="checkbox" id="checkbox1" class="form-check-input">
+                    <label for="checkbox1" class="form-check-label">Checkbox 1</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="checkbox" id="checkbox2" class="form-check-input">
+                    <label for="checkbox2" class="form-check-label">Checkbox 2</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="checkbox" id="checkbox3" class="form-check-input">
+                    <label for="checkbox3" class="form-check-label">Checkbox 3</label>
+                </div>
+            </div>
+            <div class="form-group m-2">
+                <label for="file">File : </label>
+                <input type="file" name="file" id="file" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="range">Range : </label>
+                <input type="range" name="range" id="range" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="date">Date : </label>
+                <input type="date" name="date" id="date" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="time">Time : </label>
+                <input type="time" name="time" id="time" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="datetime">Datetime : </label>
+                <input type="datetime" name="datetime" id="datetime" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="datetime-local">Datetime Local : </label>
+                <input type="datetime-local" name="datetime-local" id="datetime-local" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="month">Month : </label>
+                <input type="month" name="month" id="month" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="week">Week : </label>
+                <input type="week" name="week" id="week" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="color">Color : </label>
+                <input type="color" name="color" id="color" class="form-control">
+            </div>
+            <div class="form-group m-2">
+                <label for="large-email">Email : </label>
+                <input type="email" name="large-email" id="large-email" class="form-control form-control-lg">
+            </div>
+        </form>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
+</html>
