@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+    <servlet>
+        <servlet-name>addition</servlet-name>
+        <servlet-class>com.demo.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addition</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+</web-app>
