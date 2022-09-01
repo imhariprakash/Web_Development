@@ -1,0 +1,112 @@
+Maven : (pom - declarative)
+
+	* maven - yiddish work - accumulator of knowledge - came into scene during the jakarta turbine project - in attempt to simplify build project	
+	* project management tool - life cycle framework
+	* jar - all at once automated(Maven takes care of it) - dependency
+	* mvnrepository.com
+	* opensource - apache group
+	* build and manage c#, ruby.. projects written in java
+	* pom - project object model - simplify and standardize build process
+	* build, dependency, report, distribution, releases, mailing list
+	
+note : single pom for a project
+
+maven repo : 
+
+	* local - my pc
+	* central - apache maven community
+	* remote - any server (if maven repo doesn't have that jar) - dev defined
+
+note : remote not defined throws error after not found in central repo.
+
+
+pom.xml : 
+
+	* info reg project and config - description, versioning
+	* home directory - search pom before anything executed
+	* dependency - jar/war files
+	
+build lifecycle : 
+	
+	* sequences of phases, goals(task) - each phase is compiled
+	* build profile : set config values(in pom file) - customized environment
+
+build plugin : 
+
+	* group of goals(plugin - used to perform a goal) - own std plugin
+
+adv : 
+
+	build, doc, release, distribution - automated
+	simplify - performance improved(friendly environment)
+	add new dependencies
+	different machines - run(write somewhere run somewhere)
+	
+why maven : 
+
+	* consistent project structure - manage source control, release
+	* backward compatible - maven 3 from older versions
+	* build parallel - after analyzing dependency
+	* better error and integrity reports
+	
+pom.xml : 
+
+	* project -> root(apache schema, w3 org sepcs)
+	* modelVersion (4.0.0)
+	* groupId (unique id of project) - group.com.company.bank
+	* artifactId (name of project)
+	* version com.company.bank:consumer-banking:1.0
+	* repositories
+	* repository -> snapshots -> enabled
+	* pluginRepository
+	* build -> sourceDirectory,scriptSourceDirectory....
+	
+snapshot : 
+
+	large app - multiple modules - many teams team a uses team b's jars
+	team b almost everyday releases new release - remote repo
+			* team b must tell team a every time they release an updated code
+			* team a update their pom.xml regularly to an updated version
+	
+	snapshot : special version (development copy) - maven checks for snapshot in a remote repo for every build - auto upgrade
+	
+	
+to do that : 
+
+	1. post-build goal in pom of projects dependent on others
+	2. continuous integration tool hudson server (preferrable)
+	
+	
+	maven takes care of transitive dependencies - graph	
+	
+1. dependency mediation : multiple versions available : if two dependency versions of same depth - choose 1 st one
+
+2. dependency management : say c depends on b -> control version of b
+
+3. dependency scope : include dependency as per current stage / build specs
+
+4. excluded dependencies : exclude a dependency using exclusion element
+
+5. optional dependencies : mark as optional using optional element
+   a dep on b and b on c if c marked as opt -> a won't use c
+   
+   
+scopes : compile(default), provided, runtime, test, system, import
+
+
+common project : make a main pom make it as parent of sub pom
+
+
+
+deployment : 
+
+	1. check in code from all project in progress into svn(version control system) / source code repo
+	2. download source code from svn
+	3. build -> war/ear -> common network -> deploy -> update doc and version number.
+	
+automate : maven -build and release
+		   subversion - source code repo manage source code
+		   jfrog/nexus - remote repo management - project binary management
+		   
+	
+	
