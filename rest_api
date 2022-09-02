@@ -1,0 +1,235 @@
+api :
+
+	1. html,css response (normal twitter)
+	2. json/xml response (twitter api - dev)
+	
+rest - modern, light weight uses http(which drives web)
+
+web services : (characteristics)
+
+	1. exchange date using http
+	2. protocol - standardized message format(soap - uses soap protocol)
+	3. rest - no restriction both client and server understands format(json/ xml)
+	
+in soap (wsdl - web doc) ---> what the web service do ? 
+in rest no such service definition - little to no doc(some web services)
+
+soap - lot of rules - maintained and designed by a community - must follow by soap web service
+
+rest - a style, no strict rules
+
+
+rest uri : weatherapp.com/zipcode/12345
+		   weatherapp.com/countries/brazil
+		  
+meta data - http response code - what actually happening
+
+resource based uri : client has no care getProfile/putProfile.....
+					 makes resistant to change, readable, simpler
+					 
+					 /profiles/{name}
+					 /message/{id}
+					 /comments/20
+					 
+resource relations :
+
+	message has multiple comments
+	acknowledge relationship in uri
+	
+	message -> each message subfolder -> comments subfolder
+	
+message
+	1
+		comments
+		1.html
+	2
+		comments
+		2.html
+		3.html
+		
+		
+adv : relationship established - now we know both message id and comment id
+
+/profiles/{profile-name}   ----  first level entities
+/messages/{message-id}     ----
+
+/messages/{message-id}/comments/{comment-id}  ---
+/messages/{message-id}/likes/{like-id}           | ---- second level entities
+/messages/{message-id}/shares/{share-id}         |
+                                              ---
+                                               
+message and profile -----> one to many relation that's why they are not related. one person can do any number of messages to anyubody - save it in all profiles
+
+so avoid it make a seperate one - access from it (seperate root level - first level entity)
+
+note : unique id like message id to identify that particular resource
+
+
+
+collection uri s :
+
+	/messages/{message-id}/comments   ----- > all comments of a particular message id
+	/messages/{message-id}/likes
+	
+this uri is not good enough - display all comments irrespective of message ids
+(/comments) could have worked if it was first level entity but hard to take a single message's comment
+
+note : get all comments - not ususal - so sticking with /messages.../comments 
+
+
+
+filtering results : 
+
+	1. query parameters - pagination, filtering
+	
+	/messages?offset=30&limit=10 (from 30 to next 10 messages)
+	
+	/messages?year=2014&offset=30&limit=10
+	
+
+types of resource uri : 
+
+	1. instance resource uri
+	2. collection resource uri
+	
+
+
+/getMessages.do?id=10
+GET /Messages/10  ------------> rest way
+
+head, option ----> rare
+get, put, post, delete ------> common
+
+note : get - read only(safe)
+
+
+GET /messages/20
+PUT /messages/20
+DELETE /messages/20
+POST /messages ---> we don't have id
+
+
+GET /messages -----> get all messages
+DELETE /message/10/comments  ----------> delete all comments of message id of 10
+GET /messages/19/comments --------------> get all comments of message id of 10
+POST /messages/10/comments --------> post a comment to message id of 10
+PUT /messages/20/comments -------> replace all comments from message 20 with new list
+
+
+
+get - repeatable
+delete - not repeatable(not a problem - no side effects - safe)
+put - repeatable (replace - safe multiple calls - same result - same query)
+post - not repeatable(multiple objects created - if unchecked - duplicated - not a safe method to make multiple calls)
+
+get,put,delete - safely repeatable - idempotent , post - not safely repeatable - non idempotent
+
+
+get request - can be cached for future use(only on get request)
+
+
+caution : 
+
+	refresh in browser - resubmits last request(what happens in case of non idempotent ones)
+	browser - warns(resubmit ? - safeguards)
+ 
+
+Responses : 
+
+	client asks - xml but server has json only ----> server(http headers - must mention)
+	message length, date, content type
+	
+status codes : 
+
+	200 ok, 201 - created, 204 - no content
+	302 - found, 307 - temporary redirect, 304 - not modified
+	404 not found, 400 - bad request, 401 - unauthorized, 403 - forbidden access, 415 - unsupported media type
+	500 - internal server error
+	
+	1xx - informational
+	2xx - success codes
+	3xx - redirection
+	4xx - client error(error in request)
+	5xx - server error
+	
+	
+	
+CRUD :
+
+	GET : 
+		success - 200
+		not found - 404
+		failure - 500
+	DELETE:
+		success - 200 or 204
+		not found - 404
+		failure - 500
+	PUT:
+		success - 200
+		wrong format/ data - 400/415
+		not found - 404
+		failure - 500
+	POST:
+		success - 201
+		wrong format - 400/415
+		failure - 500
+		
+
+HATEOS - Hypermedia As The Engine Of Application State
+
+help pages- what uris - supported methods
+
+{"id" : "1", 
+	...
+	...
+  "href" : "/messages/1"
+}
+
+
+rel attribute :
+
+	1. manage links - rel attribute -----> add to any link - specify relation (eg: css in html meta)
+	
+<link rel="stylesheets" href="bootstrap/dist/css/style.css">
+
+extra info : 
+
+{
+	"links" : [
+				{
+					"href" : "/messages/1"
+					"rel" : "self"
+				},
+				.....
+				.....
+			  ]
+}
+
+
+
+RICHARDSON MATURITY MODEL : 
+
+level 0 : 
+
+	1. single uri : same url for everything
+	2. pox - plain old xml
+	3. no http methods
+	
+level 1 : 
+
+	1. resource uris - seperate
+
+level 2 :
+
+	1. use std http methods, status codes 
+	
+level 3 : 
+	
+	1. implement hateos
+	
+	
+
+
+
+
+
