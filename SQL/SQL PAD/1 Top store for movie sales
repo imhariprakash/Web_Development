@@ -1,0 +1,28 @@
+Instruction
+
+Write a query to return the name of the store and its manager, that generated the most sales.
+
+Table: sales_by_store
+Movie sales by store
+
+  col_name   | col_type
+-------------+----------
+ store       | text
+ manager     | text
+ total_sales | numeric
+Sample results
+
+   store   |   manager
+-----------+--------------
+ Woodridge | Jon Stephens
+ 
+ 
+SELECT store, manager FROM sales_by_store
+ORDER BY total_sales DESC
+LIMIT 1;
+
+
+
+
+store	manager
+Woodridge	Jon Stephens
