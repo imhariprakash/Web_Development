@@ -1,0 +1,306 @@
+JAVA JDBC : 
+
+JDBC : JAVA API - connect and execute queries with db - java SE
+jdbc drivers : 
+	1. jdbc-odbc bridge driver 
+	2. native
+	3. network protocol driver
+	4. thin driver
+	
+odbc - open database connectivity tool - microsoft(java.sql)
+
+interfaces : driver, connector, statement, preparedStatement,callableStatement, ResultSet, ResultSetMetaData, DatabaseMetaData, RowSet
+
+popular jdbc classes : 
+
+	1. driverManager
+	2. Blob
+	3. Clob
+	4. Types
+	
+odbc - written in C (java has own api uses odbc - jdbc)
+
+	1. connect to db
+	2. execute queries
+	3. retrieve result
+	
+
+jdbc - odbc bridge driver : 
+	* jdbc method call to odbc function calls
+	* jdk 8 - use own vendor jdbc-odbc driver
+	
+native api driver : 
+	* uses client side libraries of db - not fully in java
+	* good performance but seperate installation(vendor cleint)
+	
+network protocol driver : 
+	* middleware converts jdbc calls -> db protocol(java)
+	* no client side lib req - self load bal, audit, logging
+	
+thin driver : 
+	* vendor specific db protocol - fully java
+	* better performance, no software req, db dependant(disadv)
+	
+
+1. Register
+2. get connection
+3. create statement
+4. execute query
+5. close connection
+
+try{
+	
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "root");
+	Statement stmt = con.createStatement();
+	ResultSet rs = stmt.executeQuery("SELECT * FROM table");
+
+	while(rs.next()){
+		System.out.println(rs.getInt(1) + ...);
+	}	
+}catch(Exception e){
+	//error
+}
+
+
+note : jar file - jre/lib/ext
+
+
+
+Driver Manager class : 
+
+	https://www.javatpoint.com/DriverManager-class
+	
+Connection interface : 
+
+	public Statement createStatement();
+	https://www.javatpoint.com/Connection-interface
+	
+	public void setAutoCommit(false) -> don't update db until commit is made(save all changes - some db - commit auto enabled)
+	
+	public void commit() --> save changes to db
+	
+	public void rollback() --> drop all changes since last commit
+	
+	
+Statement interface : 
+
+	1) public ResultSet executeQuery(String sql): is used to execute SELECT query. It returns the object of ResultSet.
+2) public int executeUpdate(String sql): is used to execute specified query, it may be create, drop, insert, update, delete etc.
+3) public boolean execute(String sql): is used to execute queries that may return multiple results.
+4) public int[] executeBatch(): is used to execute batch of commands.
+
+
+ResultSet interface : 
+
+	The object of ResultSet maintains a cursor pointing to a row of a table. Initially, cursor points to before the first row.
+	
+public boolean next() -> next row ?
+public boolean previous() -> previous row ?
+public int getInt()
+
+note : https://www.javatpoint.com/ResultSet-interface
+
+
+normal query vs prepared statements: 
+	* performance will be faster - as compiled once
+	* prepared statements - precompiled - no need to compile each time - compiled only once 
+	* takes parameter! faster as only compiled once
+	
+	
+1. String query = "insert into emp values(?,?,?)";
+2. public PreparedStatement prepareStatement(String query) throws SQLException
+
+Methods of PreparedStatement interface : 
+	public void setInt(int paramIndex, int value)
+	public void setFloat(int paramIndex, Float value)
+	public void setString(int paramIndex, String value)
+	public void setDouble(int paramIndex, Double value)
+	public int executeUpdate()
+	public ResultSet executeQuery()
+	
+	https://www.javatpoint.com/PreparedStatement-interface
+	
+eg : PreparedStatement stmt = con.preparedStatement("insert into Emp values(?, ?)");
+	stmt.setInt(1, 101);
+	stmt.setString(2, "Ratan");
+	
+	int  i = stmt.executeUpdate(); // records inserted
+	
+	
+PreparedStatement stmt=con.prepareStatement("update emp set name=? where id=?");  
+stmt.setString(1,"Sonoo");//1 specifies the first parameter in the query i.e. name  
+stmt.setInt(2,101);  
+  
+int i=stmt.executeUpdate();  
+System.out.println(i+" records updated");  
+
+
+
+
+
+ResultSetMetaData interface : 
+	* info about data
+	
+	public int getColumnCount()
+	public String getColumnName(int index)
+	public String getColumnTypeName(int index)
+	public String getTableName(int index)
+	
+get object of ResultSetMetaData :
+
+	public ResultSetMetaData getMetaData()
+	
+	
+import java.sql.*;  
+class Rsmd{  
+public static void main(String args[]){  
+try{  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+Connection con=DriverManager.getConnection(  
+"jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
+  
+PreparedStatement ps=con.prepareStatement("select * from emp");  
+ResultSet rs=ps.executeQuery();  
+ResultSetMetaData rsmd=rs.getMetaData();  
+  
+System.out.println("Total columns: "+rsmd.getColumnCount());  
+System.out.println("Column Name of 1st column: "+rsmd.getColumnName(1));  
+System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(1));  
+  
+con.close();  
+}catch(Exception e){ System.out.println(e);}  
+}  
+}  
+
+
+note : https://www.javatpoint.com/ResultSetMetaData-interface
+
+
+
+
+
+DatabaseMetaData : 
+
+	* getMetaData() returns object of DatabaseMetaData
+	
+import java.sql.*;  
+class Dbmd{  
+public static void main(String args[]){  
+try{  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
+DatabaseMetaData dbmd=con.getMetaData();  
+  
+System.out.println("Driver Name: "+dbmd.getDriverName());  
+System.out.println("Driver Version: "+dbmd.getDriverVersion());  
+System.out.println("UserName: "+dbmd.getUserName());  
+System.out.println("Database Product Name: "+dbmd.getDatabaseProductName());  
+System.out.println("Database Product Version: "+dbmd.getDatabaseProductVersion());  
+  
+con.close();  
+}catch(Exception e){ System.out.println(e);}  
+}  
+}  
+
+
+
+store images in db : using PreparedStatement
+
+https://www.javatpoint.com/storing-image-in-oracle-database
+
+
+store files : 
+
+https://www.javatpoint.com/storing-file-in-oracle-database
+
+
+
+CallableStatement Interface : 
+
+	call stored procedures and functions
+	business logic inside stored procedures - better performance
+	eg: age of employee - based on dob - create function receives date as input and returns age as output
+	
+stored procedure : business logic, no return type, 0 / more return values, call other funcions, support ip and op parameters, try catch - use
+
+function : perform calculation, return type must, only one return type, procedure can't be called from a function, only ip parameters, no exception handling in user defined function
+
+
+public CallableStatement prepareCall("{call procedurename(?,?..?)}")
+
+CallableStatement stmt = con.prepareCall("{call myProcedure(?,?)}");
+
+
+https://www.javatpoint.com/CallableStatement-interface
+
+
+transaction management : 
+
+transactions : single unit of work
+ACID - atomicity, consistency, isolation, durability
+
+atomicity - either complete / not done at all
+consistency - bring db from one consistent state to another
+isolation - one transaction is isolated from other
+durability - no tranasctions - committed(error/power loss)
+
+adv of transaction management - better performance
+
+
+https://www.javatpoint.com/transaction-management-in-jdbc
+
+
+
+
+
+
+
+
+
+Batch processing : group of queries - improve performance
+
+	java.sql.Statement & java.sql.PreparedStatement gives methods for batch processing
+	
+	addBatch(String query)
+	executeBatch()
+	supportsBatchIpdates() -> true if batch processing can be done in db
+	clearBatch()
+	
+
+
+Statement stmt=con.createStatement();  
+stmt.addBatch("insert into user420 values(190,'abhi',40000)");  
+stmt.addBatch("insert into user420 values(191,'umesh',50000)");  
+  
+stmt.executeBatch();//executing the batch  
+  
+con.commit();  
+con.close();  
+
+
+
+prepared statements : take inputs in while - at the end of loop - execute batch!
+
+
+Java Rowset : 
+	bean component - wrapper of ResultSet
+	RowSet - mechanism to keep the data in tabular form
+	
+1. jdbcRowSet
+2. CachedRowSet
+3. WebRowSet
+4. JoinRowSet
+5. FilteredRowSet
+
+https://www.javatpoint.com/jdbc-rowset
+
+
+event handling with RowSet : 
+	1. cursorMoved(RowSetEvent event)
+	2. rowChanged("                 )
+	3. rowSetChanged(RowSetEvent event)
+	
+	
