@@ -1,0 +1,12 @@
+json : 
+	* javascript object notation, light weight data-interchange fomat, language independant, 
+	* support - array, obj, string, number, values
+	* nesting possible - not complex
+	* json doesn't support comments - say give it as key value pair
+	
+	
+tools : 
+	1. jsondiff
+	2. jsonlint validator
+	3. json beautifier
+	
