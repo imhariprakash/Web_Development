@@ -1,0 +1,183 @@
+web inf : 
+	* invinsible to web container - resources needed to run app (jar, lib, web.xml)
+	* web-inf/classes - java classes and packages - loaded while starting app
+	* web-inf/lib - jar files
+	* web.xml : deployment descriptor
+	
+	
+web.xml : 
+	* deployment descriptor (url map to servlets) - app's war under WEB_INF directory
+	* give welcome-file-list
+	* preload servelets, restrict resource access, control session timeout
+	* servlet config, context, filter config, context
+	
+https://docs.oracle.com/cd/E13222_01/wls/docs81/webapp/web_xml.html
+
+web.xml elements : 
+	1. <web-app>
+	2. <servlet>
+	3. <servlet-name>
+	4. <servlet-class>
+	5. <servlet-mapping>
+	6. <url-pattern>
+
+web.xml tags : 
+	1. welcome-file-list
+	2. session config
+	3. error page
+	
+
+remove whitespaces in web.xml : 
+	
+		<jsp-config>
+			<jsp-property-group>
+				<url-pattern>*.jsp</url-pattern>
+				<trim-directive-whitespaces>true</trim-	directive-whitespaces>
+			</jsp-property-group>
+		</jsp-config>
+		
+		
+		
+		
+		
+Tomcat : 
+	* servlet container - implementing jsp, websites api, java servlet
+	* initially just a ref implementation - now first choice - extensible, core engine, durable
+	* dynamic website - servlet
+	* http server and servlet container = tomcat server
+	* just write jsp - routing taken care by tomcat
+	* tomcat : scans web.xml, loads classes, servlets, filters. create thread for each request
+	* webserver - serves local file
+	
+	
+	
+servlet engine : 
+	* application server's servlet engi. manages servlet
+	* install, initialize, destroy, access components, configure, request handle
+	* converts jsp to servlets
+	* takes request -> activate servlet -> db,jdbc- res
+	* servlet engine : full featured servlet container.
+	
+	
+	
+connectors : 
+	* https://www.mulesoft.com/tcat/tomcat-connectors
+	* Tomcat's link to outside world - allows catalina to receive requests, send response (dynamic pages)
+	* each connector represents a port - tomcat is listening for requests.
+	* connectors - link tomcat and other web technologies
+	* job - listen requests -> pass to engine -> send back to port to deliver
+	* only info connector has : which port to listen, how to listen, how to pass req to server
+	
+	
+<Server>
+
+
+  <Service>
+
+
+    <Connector port="8443"/>
+
+
+    <Connector port="8444"/>
+
+
+    <Engine>
+
+
+      <Host name="yourhostname">
+
+
+        <Context path="/webapp1"/>
+
+
+        <Context path="/webapp2"/>
+
+
+      </Host>
+
+
+    </Engine>
+
+  </Service>
+
+</Server>
+
+
+
+note : nest connector elements - 2 conn listening - OS allows one connector per port. both conn pass request to same engine
+
+this config - 2 connectors used - each request generates two responses. 
+
+
+I want only one : 
+	* each connector pass only request from its port only to one specific web app
+	* rearrange web.xml hierarchy simply
+	
+	
+    
+<Server>
+
+ 
+  <Service name="Catalina">
+
+ 
+    <Connector port="8443"/>
+
+ 
+    <Engine>
+
+ 
+      <Host name="yourhostname">
+
+ 
+        <Context path="/webapp1"/>
+
+ 
+      </Host>
+
+ 
+    </Engine>
+
+ 
+  </Service>
+
+ 
+  <Service name="Catalina8444">
+
+ 
+    <Connector port="8444"/>
+
+ 
+    <Engine>
+
+ 
+      <Host name="yourhostname">
+
+ 
+        <Context path="/webapp2"/>
+
+ 
+      </Host>
+
+ 
+    </Engine>
+
+ 
+  </Service>
+
+ 
+</Server>
+
+
+types : HTTP conn, AJP conn
+
+
+HTTP connector : 
+	* Supports HTTP/1.1 protocol - enables catalina function as standalone web server in addition to execute jsp and servlets
+	* each request requires thread for that time dura
+	* add threads created - when necessary
+
+
+
+
+
