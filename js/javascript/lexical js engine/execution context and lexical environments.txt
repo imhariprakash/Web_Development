@@ -66,10 +66,74 @@ step by step :
 
 var : 
 
-	* 
+	* js looks in current context and global context(outer environment)
+	* each environment has access to global context environment
+	
+code :
+
+	function a(){
+		console.log(myvar);
+	}
+
+	function b(){
+		a();
+		var myvar = 2;
+		a();
+	}
+
+	var myvar = 1;
+	b();
+	
+	op : 1 1
+	
+	
+note : not inside the b() but at same level as global environment
+       can't find in current environment, find in global execution context(its lower level at lexical environment)
+       
+       
+       
+more : 
+
+	* all functions are in same level as global environment until nested
+	* so any function look down - get global lexical context
+	
+	
+function a(){
+	function b(){
+		console.log("B");
+	}
+	var myvar = 2;
+	b();
+}
+
+a();
+//b(); (b is not same lexical space as global(inside a)) - unable to find
+
+op : 2
+
+
+if myvar = 2 is commented, js looks deepdown and finds myvar = 1 from global context
 
 
 
+let : 
 
+	* block scoping : only within block
+	* good to use let
+	
+	
+	
+asynchronous ? how achieved : 
 
+	* js engine of browser : multithread
+	* async - runs outside js
+	* everything inside js : synchronous
+	
+step by step : 
 
+	* another : event queue(notifications)
+	* when async calls made - notified - place in queue
+	* put at queue, does functions keep going
+	* when stack is empty - periodically look at queue : wait for something
+	* if something there : execute queue items
+	* queue won't be executed until - stack empty
