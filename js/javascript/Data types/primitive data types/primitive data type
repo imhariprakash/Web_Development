@@ -1,0 +1,35 @@
+primitive type : 
+
+	* single value : undefined(lack of existence) : initially js assigns :can't set a = undefined means we are never going to assign it
+	* Null : nothing
+	* Boolean : true / false
+	* Number : (numeric only has one type for numericals) : floating point
+	* String - single / double quotes
+	* Symbol (new one ES6) : being constructed not yet supported by most browsers
+	
+	
+operator precedence and associativity(left to right / right to left) : 
+
+Conversion : 
+
+	* Number(undefined) = NaN
+	* Number(null) = 0
+	* == converts and checks
+	* === no conversions (type and value equal)
+	* Boolean(undefined) = false
+	* Boolean(nan) = false
+	* Boolean("") = false
+	
+
+default value : 
+
+	name = name || '<Your name here>';
+	console.log("Hello " + name);   // careful about 0
+	
+	say greet() -> Hello <Your name here>
+	
+	
+
+	
+
+
