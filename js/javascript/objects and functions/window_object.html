@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--Some work and some doesn't-->
+        <input type="button" value="Alert"><br><br>
+        <input type="submit" value="Confirm"><br><br>
+        <input type="button" value="Prompt"><br><br>
+        <input type="button" value="Print"><br><br>
+        <input type="button" value="Open"><br><br>
+        <input type="button" value="Close"><br><br>
+        <input type="button" value="MoveTo"><br><br>
+        <input type="button" value="ResizeTo"><br><br>
+        <input type="button" value="ScrollBy"><br><br>
+        <input type="button" value="ScrollTo"><br><br>
+        <input type="button" value="Focus"><br><br>
+        <input type="button" value="Blur"><br><br>
+        <input type="button" value="SetTimeout"><br><br>
+        <input type="button" value="SetInterval"><br><br>
+        <input type="button" value="ClearTimeout"><br><br>
+        <input type="button" value="ClearInterval"><br><br>
+        <input type="button" value="Atob"><br><br>
+        <input type="button" value="Btoa"><br><br>
+        <input type="button" value="Back"><br><br>
+        <input type="button" value="Forward"><br><br>
+        <input type="button" value="Home"><br><br>
+        <input type="button" value="Stop"><br><br>
+        <input type="button" value="Location"><br><br>
+        <input type="button" value="Reload"><br><br>
+        <input type="button" value="Assign"><br><br>
+        <input type="button" value="Replace"><br><br>
+        <input type="button" value="GetSelection"><br><br>
+        <input type="button" value="Find"><br><br>
+        <input type="button" value="CaptureEvents"><br><br>
+        <input type="button" value="ReleaseEvents"><br><br>
+        <input type="button" value="RouteEvent"><br><br>
+        <input type="button" value="EnableExternalCapture"><br><br>
+        <input type="button" value="DisableExternalCapture"><br><br>
+        <input type="button" value="External"><br><br>
+    </body>
+
+    <script>
+    document.querySelector('input').addEventListener('click', function(){
+        alert('Hello World');
+    });
+
+    document.querySelector('input[type="submit"]').addEventListener('click', function(){
+        confirm('Are you sure?');
+    });
+
+    document.querySelector('input[value="Prompt"]').addEventListener('click', function(){
+        prompt('Enter your name');
+    });
+
+    document.querySelector('input[value="Print"]').addEventListener('click', function(){
+        print();
+    });
+
+    document.querySelector('input[value="Open"]').addEventListener('click', function(){
+        open('https://www.google.com');
+    });
+
+    document.querySelector('input[value="Close"]').addEventListener('click', function(){
+        close();
+    });
+
+    document.querySelector('input[value="MoveTo"]').addEventListener('click', function(){
+        moveTo(100, 100);
+    });
+
+    document.querySelector('input[value="ResizeTo"]').addEventListener('click', function(){
+        resizeTo(500, 500);
+    });
+
+    document.querySelector('input[value="ScrollBy"]').addEventListener('click', function(){
+        scrollBy(100, 100);
+    });
+
+    document.querySelector('input[value="ScrollTo"]').addEventListener('click', function(){
+        scrollTo(100, 100);
+    });
+
+    document.querySelector('input[value="Focus"]').addEventListener('click', function(){
+        focus();
+    });
+
+    document.querySelector('input[value="Blur"]').addEventListener('click', function(){
+        blur();
+    });
+
+    document.querySelector('input[value="SetTimeout"]').addEventListener('click', function(){
+        setTimeout(function(){
+            alert('Hello World');
+        }, 3000);
+    });
+
+    document.querySelector('input[value="SetInterval"]').addEventListener('click', function(){
+        setInterval(function(){
+            alert('Hello World');
+        }, 3000);
+    });
+
+    document.querySelector('input[value="ClearTimeout"]').addEventListener('click', function(){
+        var timeout = setTimeout(function(){
+            alert('Hello World');
+        }, 3000);
+
+        clearTimeout(timeout);
+    });
+
+    document.querySelector('input[value="ClearInterval"]').addEventListener('click', function(){
+        var interval = setInterval(function(){
+            alert('Hello World');
+        }, 3000);
+
+        clearInterval(interval);
+    });
+
+    document.querySelector('input[value="Atob"]').addEventListener('click', function(){
+        var encoded = btoa('Hello World');
+        alert(encoded);
+    });
+
+    document.querySelector('input[value="Btoa"]').addEventListener('click', function(){
+        var decoded = atob('SGVsbG8gV29ybGQ=');
+        alert(decoded);
+    });
+
+    document.querySelector('input[value="Back"]').addEventListener('click', function(){
+        history.back();
+    });
+
+    document.querySelector('input[value="Forward"]').addEventListener('click', function(){
+        history.forward();
+    });
+
+    document.querySelector('input[value="Home"]').addEventListener('click', function(){
+        history.go(0);
+    });
+
+    document.querySelector('input[value="Stop"]').addEventListener('click', function(){
+        stop();
+    });
+
+    document.querySelector('input[value="Location"]').addEventListener('click', function(){
+        alert(location);
+    });
+
+    document.querySelector('input[value="Reload"]').addEventListener('click', function(){
+        location.reload();
+    });
+
+    document.querySelector('input[value="Assign"]').addEventListener('click', function(){
+        location.assign('https://www.google.com');
+    });
+
+    document.querySelector('input[value="GetSelection"]').addEventListener('click', function(){
+        alert(getSelection());
+    });
+
+    document.querySelector('input[value="Find"]').addEventListener('click', function(){
+        find('Hello World');
+    });
+
+    document.querySelector('input[value="CaptureEvents"]').addEventListener('click', function(){
+        captureEvents(Event.CLICK);
+    });
+
+    document.querySelector('input[value="ReleaseEvents"]').addEventListener('click', function(){
+        releaseEvents(Event.CLICK);
+    });
+
+    document.querySelector('input[value="RouteEvent"]').addEventListener('click', function(){
+        routeEvent(Event.CLICK);
+    });
+
+    document.querySelector('input[value="EnableExternalCapture"]').addEventListener('click', function(){
+        enableExternalCapture();
+    });
+
+    document.querySelector('input[value="DisableExternalCapture"]').addEventListener('click', function(){
+        disableExternalCapture();
+    });
+
+    document.querySelector('input[value="External"]').addEventListener('click', function(){
+        alert(external);
+    });
+
+</script>
+</html>
