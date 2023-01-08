@@ -1,0 +1,292 @@
+js : 
+	* client side dynamic pages
+	* object based, light weight, cross platform
+	* embedded in browser, weakly typed
+	* interpreted, case sensitive
+	* client side validation, drop down dynamic, date time, pop up, clocks
+
+places : 
+	1. inside head
+	2. inside / end of body
+	3. .js file
+	
+
+comments : 
+
+	// single line
+	/* */ multiline
+	
+let - block scope, try to use as much as possible
+
+
+set global context variable inside function : 
+
+	* window.myvar = 50;
+	
+
+Data types : 
+	primitives :
+		1. string
+		2. number
+		3. boolean
+		4. undefined
+		5. null
+		
+	non primitives : 
+		1. object
+		2. array
+		3. regexp
+		
+special operations : 
+
+	1. ?:
+	2. ,
+	3. delete
+	4. in
+	5. instanceof
+	6. new
+	7. typeof
+	8. void - discard return value
+	9. yield - check what is generated in a generator 
+	
+
+Functions : 
+
+	function name(arg1, ...){
+		return "hello";
+	}
+	
+
+objects : 
+	* state and behaviour
+	* javascript : template based not class based
+	* no need for classes to get objects, directly
+	
+create objects : 
+
+	1. object literal
+	2. instance of object - new keyword
+	3. object constructor
+	
+object literal : 
+
+	{id:101,name:"myname",salary:100000}
+	
+create instance : 
+
+	var emp = new Object();
+	emp.id = 901;
+	emp.name = "myname";
+	emp.salary = 50000;
+	
+object constructor : 
+
+	function emp(id, name, salary){
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+	
+	e = new emp(101,"myname",50000);
+	
+	
+define method : 
+
+	function emp(id, name, salary){
+		function changesalary(newSalary){
+			this.salary = otherSalary;
+		}
+	}
+	
+	e.changesalary(60000);
+	
+
+Array : 
+
+	* var arrayname = [value1, 2, 3,...];
+	* new Array();
+	* new Array("1","2",..);
+	
+
+String : 
+
+	* var myname = "myname";
+	* new String("Hello");
+	
+string methods : 
+	
+	* str.chatAt(0);
+	* s1.concat(s2);
+	* s1.indexOf("is"); -> returns position
+	* s1.lastIndexOf("is") -> multiple instance return last one
+	* str.toLowerCase(), toUpperCase();
+	* str.slice(from, to);
+	* str.trim(); 
+	* str.split();
+	
+Data object - javascript
+Math Object
+Number Object
+BooleanObject
+
+
+
+Browser object model : 
+
+	* window is the default browser object - global object in case
+	* window -> (doc, history, screen, navigator, location)
+	* automatically created by browser
+	
+methods of window object : 
+
+	* alert();
+	* prompt();
+	* confirm();
+	* open();
+	* close();
+	* setTimeOut();
+	
+DOM model : 
+
+	* window is the root element
+	* document -> anchor, form, link
+	* form -> text, textarea, radio,...
+	
+methods of document object : 
+
+	* write();
+	* writeln();
+	* getElementById();
+	* getElementByName();
+	* getElementByTagName();
+	* getElementByClassName();
+	
+innerHTML : 
+	* write dynamic html (registration form, links)
+	
+innerText : 
+	* write dynamic text (won't be interpreted as html text)
+	* validation message, password strength
+	
+	
+	
+Javascript classes : 
+
+	* js - classes are special type of functions
+	* class is executed in strict mode : silent error throws error
+	
+class declaration : 
+
+	class Employee{
+		constructor(id, name){
+			this.id = id;
+			this.name = name;
+		}
+		detail(){
+			document.writeln(this.id + " " + this.name);
+		}
+	}
+	
+	var e1 = new Employee(101, "Martin");
+	
+	
+Note : Unlike functions : class declaration is not a part of hoisting
+       Need to declare before using
+       Can't declare a class twice
+       
+On the fly class : 
+
+	var emp = class{
+		constructor(id, name){
+		    this.id = id;
+		    this.name = name;
+		}
+		function changeSalary{
+			this.salary = salary;
+		}
+	}
+	
+We can redeclare on the fly classes even named.
+
+
+
+javascript prototype object : 
+	
+	* js - prototype based language - acquire properties and functions from each other
+	* whenever function is created : prototype property added to that function.
+	* js : each time object created - its functions are also created
+	* prototype based : only created once
+	* emp1 inherits its functions from Employee
+	
+	function Employee(firstname, lastname){
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+
+	Employee.prototype.fullname = function(){
+		return this.firstName + " " + this.lastName;
+	}
+
+	var emp1 = new Employee("Ma","Ro");
+	emp1.fullName();
+	
+	
+	
+Javascript constructor method : 
+
+	* special type : initialize, create object (when memory is allocated)
+	* keyword : constructor(use parent class constructor using super keyword)
+	
+	class CompanyName  
+	{  
+	  constructor()  
+	  {  
+		this.company="company";  
+	  }  
+	}  
+	class Employee extends CompanyName {  
+	  constructor(id,name) {  
+	   super();  
+		this.id=id;  
+		this.name=name;  
+	  }   
+	}     
+	var emp = new Employee(1,"John");  
+	document.writeln(emp.id+" "+emp.name+" "+emp.company);  
+	
+	
+javascript static method : 
+
+	* belong to class itself
+	* no need for instance : same name - invoke last one
+	* utility functions
+	* non static methods can invoke static methods
+	* keyword : static
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
